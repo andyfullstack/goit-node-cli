@@ -1,10 +1,21 @@
 const Contacts = require("./contact");
 const { program } = require("commander");
+const fs = require("node:fs/promises");
+const path = require("node:path");
 
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const contacts = await Contacts.listContacts();
+
+      fs.readdir(__dirname)
+
+        .then(() => {
+          const mergedResult = [...contacts];
+          console.table(mergedResult);
+        })
+        .catch(error => console.error(error));
+
       return contacts;
 
     case "get":
