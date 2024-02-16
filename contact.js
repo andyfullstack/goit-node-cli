@@ -3,19 +3,14 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const contactsPath = path.join(__dirname, "./db/contact.json");
-// console.log(contactsPath);
 
 async function readFile() {
   const data = await fs.readFile(contactsPath, { encoding: "utf-8" });
 
-  // console.log(data, typeof data);
-
-  return JSON.parse(data); // или   // return data;
+  return JSON.parse(data);
 }
 
 function writeFile(contact) {
-  // console.log(books, typeof books);
-
   return fs.writeFile(contactsPath, JSON.stringify(contact, undefined, 3));
 }
 
