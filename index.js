@@ -1,7 +1,6 @@
 const Contacts = require("./contact");
 const { program } = require("commander");
 
-// TODO: рефакторити
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
@@ -9,12 +8,10 @@ async function invokeAction({ action, id, name, email, phone }) {
       return contacts;
 
     case "get":
-      // ... id
       const contact = await Contacts.getContactById(id);
       return contact;
 
     case "add":
-      // ... name email phone
       const createdContact = await Contacts.addContact({
         name,
         email,
@@ -23,7 +20,6 @@ async function invokeAction({ action, id, name, email, phone }) {
       return createdContact;
 
     case "remove":
-      // ... id
       const removedContact = await Contacts.removeContact(id);
       return removedContact;
 
