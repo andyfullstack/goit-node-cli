@@ -42,4 +42,4 @@ program.parse(process.argv);
 
 const options = program.opts();
 
-invokeAction(options).then(console.log).catch(console.error);
+invokeAction(options);
