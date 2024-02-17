@@ -41,7 +41,7 @@ async function removeContact(id) {
   const index = contacts.findIndex(contact => contact.id === id);
 
   if (index === -1) {
-    return null;
+    return undefined;
   }
 
   const deletedContact = contacts[index];
