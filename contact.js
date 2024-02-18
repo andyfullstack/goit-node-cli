@@ -19,9 +19,13 @@ async function listContacts() {
   return contacts;
 }
 
-async function getContactById(id) {
+async function getContactBy(id, name, email) {
   const contacts = await readFile();
-  const contact = contacts.find(contact => contact.id === id);
+  const contact = contacts.find(
+    contact =>
+      contact.id === id || contact.name === name || contact.email === email
+  );
+
   return contact;
 }
 
@@ -55,7 +59,7 @@ async function removeContact(id) {
 
 module.exports = {
   listContacts,
-  getContactById,
+  getContactBy,
   addContact,
   removeContact,
 };
