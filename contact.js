@@ -21,12 +21,15 @@ async function listContacts() {
 
 async function getContactBy(id, name, email) {
   const contacts = await readFile();
+
   const contact = contacts.find(
     contact =>
       contact.id === id || contact.name === name || contact.email === email
   );
 
-  return contact;
+  if (contacts.includes(contact)) {
+    return contact;
+  } else return null;
 }
 
 async function addContact(contact) {
