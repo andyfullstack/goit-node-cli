@@ -27,9 +27,7 @@ async function getContactBy(id, name, email) {
       contact.id === id || contact.name === name || contact.email === email
   );
 
-  if (contacts.includes(contact)) {
-    return contact;
-  } else return null;
+  return contact || null;
 }
 
 async function addContact(contact) {
